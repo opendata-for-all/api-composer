@@ -1,0 +1,461 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "REST Countries",
+		"version": "2.0.5",
+		"description": "Get information about countries via a RESTful API",
+		"license": {
+			"name": "Mozilla Public License MPL 2.0",
+			"url": "https://www.mozilla.org/en-US/MPL/2.0/"
+		}
+	},
+	"host": "restcountries.eu",
+	"basePath": "/rest/v2",
+	"produces": [
+		"application/json"
+	],
+	"schemes": [
+		"https",
+		"http"
+	],
+	"externalDocs": {
+		"url": "https://restcountries.eu"
+	},
+	"x-unofficialSpec": true,
+	"paths": {
+		"/all": {
+			"get": {
+				"summary": "Returns all countries.",
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/name/{name}": {
+			"get": {
+				"summary": "Search by country name. It can be the native name or partial name",
+				"parameters": [
+					{
+						"name": "name",
+						"in": "path",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "fullText",
+						"in": "query",
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/alpha/{code}": {
+			"get": {
+				"summary": "Search by ISO 3166-1 2-letter or 3-letter country code",
+				"parameters": [
+					{
+						"name": "code",
+						"in": "path",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "codes",
+						"in": "query",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/currency/{currency}": {
+			"get": {
+				"summary": "Search by ISO 4217 currency code",
+				"parameters": [
+					{
+						"name": "currency",
+						"in": "path",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/lang/{et}": {
+			"get": {
+				"summary": "Search by ISO 639-1 language code",
+				"parameters": [
+					{
+						"name": "et",
+						"in": "path",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/capital/{capital}": {
+			"get": {
+				"summary": "Search by capital city.",
+				"parameters": [
+					{
+						"name": "capital",
+						"in": "path",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/callingcode/{callingcode}": {
+			"get": {
+				"summary": "Search by calling code",
+				"parameters": [
+					{
+						"name": "callingcode",
+						"type": "integer",
+						"in": "path",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/region/{region}": {
+			"get": {
+				"summary": "Search by region: Africa, America\\, Asia, Europe, Oceania",
+				"parameters": [
+					{
+						"name": "region",
+						"in": "path",
+						"type": "string",
+						"enum": [
+							"africa",
+							"america",
+							"asia",
+							"europe",
+							"oceania"
+						],
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/regionalbloc/{regionalbloc}": {
+			"get": {
+				"parameters": [
+					{
+						"name": "regionalbloc",
+						"in": "path",
+						"type": "string",
+						"enum": [
+							"eu",
+							"efta",
+							"caricom",
+							"pa",
+							"au",
+							"usan",
+							"eeu",
+							"al",
+							"asean",
+							"cais",
+							"cefta",
+							"nafta",
+							"saarc"
+						],
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Country"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Country": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"topLevelDomain": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"alpha2Code": {
+					"type": "string"
+				},
+				"alpha3Code": {
+					"type": "string"
+				},
+				"callingCodes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"capital": {
+					"type": "string"
+				},
+				"altSpellings": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"region": {
+					"type": "string"
+				},
+				"subregion": {
+					"type": "string"
+				},
+				"population": {
+					"type": "integer"
+				},
+				"latlng": {
+					"type": "array",
+					"items": {
+						"type": "integer"
+					}
+				},
+				"demonym": {
+					"type": "string"
+				},
+				"area": {
+					"type": "number"
+				},
+				"gini": {
+					"type": "number"
+				},
+				"timezones": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"borders": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"nativeName": {
+					"type": "string"
+				},
+				"numericCode": {
+					"type": "string"
+				},
+				"flag": {
+					"type": "string"
+				},
+				"cioc": {
+					"type": "string"
+				},
+				"currencies": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Currency"
+					}
+				},
+				"languages": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Language"
+					}
+				},
+				"Translation": {
+					"$ref": "#/definitions/Translation"
+				},
+				"regionalBlocs": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RegionalBloc"
+					}
+				}
+			}
+		},
+		"Currency": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"symbol": {
+					"type": "string"
+				}
+			}
+		},
+		"Translation": {
+			"type": "object",
+			"properties": {
+				"de": {
+					"type": "string"
+				},
+				"es": {
+					"type": "string"
+				},
+				"fr": {
+					"type": "string"
+				},
+				"ja": {
+					"type": "string"
+				},
+				"it": {
+					"type": "string"
+				},
+				"br": {
+					"type": "string"
+				},
+				"pt": {
+					"type": "string"
+				},
+				"nl": {
+					"type": "string"
+				},
+				"hr": {
+					"type": "string"
+				},
+				"fa": {
+					"type": "string"
+				}
+			}
+		},
+		"Language": {
+			"type": "object",
+			"properties": {
+				"iso639_1": {
+					"type": "string"
+				},
+				"iso639_2": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"nativeName": {
+					"type": "string"
+				}
+			}
+		},
+		"RegionalBloc": {
+			"type": "object",
+			"properties": {
+				"acronym": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"otherAcronyms": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"otherNames": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}

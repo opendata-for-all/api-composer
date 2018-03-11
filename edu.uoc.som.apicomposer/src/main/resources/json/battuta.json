@@ -1,0 +1,294 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Battuta!",
+    "version": "0.0.1",
+    "description": "A location API provider, by medunes",
+    "contact": {
+      "email": "battuta@medunes.net"
+    }
+  },
+  "host": "battuta.medunes.net",
+  "basePath": "/api",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "externalDocs": {
+    "url": "https://battuta.medunes.net/"
+  },
+  "paths": {
+    "/country/all": {
+      "get": {
+        "summary": "List all countries",
+        "description": "Lists all countries of the world",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/country/code/{code}": {
+      "get": {
+        "summary": "Country by code",
+        "description": "Returns a single JSON object containing the name and the code of the country requested by its alpha-2 country",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/country/search": {
+      "get": {
+        "summary": "Country by name, region or city",
+        "description": "Lists all countries which names, regions and cities contain hints(parts of text) given in the request URL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "type": "string",
+            "description": "text which should figure in the name of the searched country"
+          },
+          {
+            "name": " region",
+            "in": "query",
+            "type": "string",
+            "description": "text which should figure in the name of any region belonging to the searched country"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "type": "string",
+            "description": "text which should figure in the name of any city belonging to the searched country"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Country"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/region/{code}/all": {
+      "get": {
+        "summary": "List all regions",
+        "description": "Lists all regions of a single country given its alpha-2 code",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Region"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/region/{code}/search": {
+      "get": {
+        "summary": "Region by name or city",
+        "description": "Lists all regions which names and cities contain hints(parts of text) given in the request URL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Region"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/city/{code}/search": {
+      "get": {
+        "summary": "City by name or region",
+        "description": "Lists all cities which names and regions contain hints(parts of text) given in the request URL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/City"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "key",
+      "in": "query"
+    }
+  },
+  "definitions": {
+    "Country": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The full name of the country (ex: Tunisia, Japan, Germany)"
+        },
+        "code": {
+          "type": "string",
+          "description": "The ISO 3166-1 alpha-2 standard country code (ex:TN/US/JP/DE)"
+        }
+      }
+    },
+    "Region": {
+      "type": "object",
+      "properties": {
+        "region": {
+          "type": "string",
+          "description": "The full name of the region (ex: Sousse, California,Tokyo,Berlin)"
+        },
+        "country": {
+          "type": "string",
+          "description": "The ISO 3166-1 alpha-2 standard country code (ex:TN/US/JP/DE)"
+        }
+      }
+    },
+    "City": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "lattitude": {
+          "type": "number"
+        },
+        "langiture": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

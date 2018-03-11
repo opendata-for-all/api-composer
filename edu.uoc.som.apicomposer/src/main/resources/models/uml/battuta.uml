@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_UAhlULo1EeeF_PzGoMjwJg" name="battuta">
+  <eAnnotations xmi:id="_SxjwUMCiEeeJ4vRL_4SAHw" source="openapi">
+    <details xmi:id="_UOhdkMCiEeeJ4vRL_4SAHw" key="source" value="battuta"/>
+  </eAnnotations>
+  <packageImport xmi:id="_CjsnkLjAEeeF_PzGoMjwJg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_eWtWALo1EeeF_PzGoMjwJg" name="Country">
+    <eAnnotations xmi:id="_Qbe1UMCYEeeJ4vRL_4SAHw" source="openapi">
+      <details xmi:id="_Sbx5IMCYEeeJ4vRL_4SAHw" key="schema" value="#/definitions/Country"/>
+      <details xmi:id="_dU5XwMCYEeeJ4vRL_4SAHw" key="operations" value="GET /country/all"/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_lh6_gLo1EeeF_PzGoMjwJg" name="name">
+      <eAnnotations xmi:id="_11OS8MCYEeeJ4vRL_4SAHw" source="openapi">
+        <details xmi:id="_39N6MMCYEeeJ4vRL_4SAHw" key="schema" value="name"/>
+      </eAnnotations>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_nbeiILo1EeeF_PzGoMjwJg" name="code">
+      <eAnnotations xmi:id="_M6C5cMCZEeeJ4vRL_4SAHw" source="openapi">
+        <details xmi:id="_O0aUYMCZEeeJ4vRL_4SAHw" key="schema" value="code"/>
+      </eAnnotations>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ep8bELo1EeeF_PzGoMjwJg" name="Region">
+    <eAnnotations xmi:id="_cjbCEMCZEeeJ4vRL_4SAHw" source="openapi">
+      <details xmi:id="_eW5K0MCZEeeJ4vRL_4SAHw" key="schema" value="#/definitions/Region"/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_ojFqcLo1EeeF_PzGoMjwJg" name="name">
+      <eAnnotations xmi:id="_NFp3EMCaEeeJ4vRL_4SAHw" source="openapi">
+        <details xmi:id="_O2x2cMCaEeeJ4vRL_4SAHw" key="schema" value="region"/>
+      </eAnnotations>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_e50qILo1EeeF_PzGoMjwJg" name="City">
+    <eAnnotations xmi:id="_i3KbkMCaEeeJ4vRL_4SAHw" source="openapi">
+      <details xmi:id="_k9z_AMCaEeeJ4vRL_4SAHw" key="schema" value="#/definitions/City"/>
+    </eAnnotations>
+    <ownedAttribute xmi:id="_t2YJALo1EeeF_PzGoMjwJg" name="name">
+      <eAnnotations xmi:id="_ucVH4MCaEeeJ4vRL_4SAHw" source="openapi">
+        <details xmi:id="_yvF9kMCaEeeJ4vRL_4SAHw" key="schema" value="city"/>
+      </eAnnotations>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_1X3kgLo1EeeF_PzGoMjwJg" name="lattitude">
+      <eAnnotations xmi:id="_EMJDQMCbEeeJ4vRL_4SAHw" source="openapi">
+        <details xmi:id="_HRMIoMCbEeeJ4vRL_4SAHw" key="schema" value="lattitude"/>
+      </eAnnotations>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_3Ho5ALo1EeeF_PzGoMjwJg" name="langiture">
+      <eAnnotations xmi:id="_MV2VUMCbEeeJ4vRL_4SAHw" source="openapi">
+        <details xmi:id="_PJtkEMCbEeeJ4vRL_4SAHw" key="schema" value="langitude"/>
+      </eAnnotations>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_AWdXALpMEeeF_PzGoMjwJg" name="region_city" memberEnd="_AWelILpMEeeF_PzGoMjwJg _AWelI7pMEeeF_PzGoMjwJg" navigableOwnedEnd="_AWelILpMEeeF_PzGoMjwJg _AWelI7pMEeeF_PzGoMjwJg">
+    <eAnnotations xmi:id="_AWd-ELpMEeeF_PzGoMjwJg" source="org.eclipse.papyrus">
+      <details xmi:id="_AWd-EbpMEeeF_PzGoMjwJg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_AWelI7pMEeeF_PzGoMjwJg" name="cities" type="_e50qILo1EeeF_PzGoMjwJg" association="_AWdXALpMEeeF_PzGoMjwJg">
+      <eAnnotations xmi:id="_3fF6IMCgEeeJ4vRL_4SAHw" source="openapi">
+        <details xmi:id="_3fF6IcCgEeeJ4vRL_4SAHw" key="operations" value="/city/{code}/search (code->Country/code,region->name)"/>
+      </eAnnotations>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Zx6dsLpMEeeF_PzGoMjwJg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZySRILpMEeeF_PzGoMjwJg" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_AWelILpMEeeF_PzGoMjwJg" name="region" type="_ep8bELo1EeeF_PzGoMjwJg" association="_AWdXALpMEeeF_PzGoMjwJg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AWelIbpMEeeF_PzGoMjwJg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AWelIrpMEeeF_PzGoMjwJg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_DyBe8LpMEeeF_PzGoMjwJg" name="country_region" visibility="private" memberEnd="_DyCtEbpMEeeF_PzGoMjwJg _DyDUIrpMEeeF_PzGoMjwJg" navigableOwnedEnd="_DyCtEbpMEeeF_PzGoMjwJg _DyDUIrpMEeeF_PzGoMjwJg">
+    <eAnnotations xmi:id="_DyCGALpMEeeF_PzGoMjwJg" source="org.eclipse.papyrus">
+      <details xmi:id="_DyCtELpMEeeF_PzGoMjwJg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_DyDUIrpMEeeF_PzGoMjwJg" name="regions" type="_ep8bELo1EeeF_PzGoMjwJg" association="_DyBe8LpMEeeF_PzGoMjwJg">
+      <eAnnotations xmi:id="_sOIVgMCbEeeJ4vRL_4SAHw" source="openapi">
+        <details xmi:id="_vHBOMMCbEeeJ4vRL_4SAHw" key="operations" value="GET /region/{code}/all code->alpha2Code"/>
+      </eAnnotations>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qoxu8LpMEeeF_PzGoMjwJg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QpT6cLpMEeeF_PzGoMjwJg" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_DyCtEbpMEeeF_PzGoMjwJg" name="country" type="_eWtWALo1EeeF_PzGoMjwJg" association="_DyBe8LpMEeeF_PzGoMjwJg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DyDUILpMEeeF_PzGoMjwJg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DyDUIbpMEeeF_PzGoMjwJg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Fg3mYLpMEeeF_PzGoMjwJg" name="country_city" memberEnd="_Fg40grpMEeeF_PzGoMjwJg _FhAJQLpMEeeF_PzGoMjwJg" navigableOwnedEnd="_Fg40grpMEeeF_PzGoMjwJg _FhAJQLpMEeeF_PzGoMjwJg">
+    <eAnnotations xmi:id="_Fg40gLpMEeeF_PzGoMjwJg" source="org.eclipse.papyrus">
+      <details xmi:id="_Fg40gbpMEeeF_PzGoMjwJg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:id="_FhAJQLpMEeeF_PzGoMjwJg" name="cities" type="_e50qILo1EeeF_PzGoMjwJg" association="_Fg3mYLpMEeeF_PzGoMjwJg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cnSvYLpMEeeF_PzGoMjwJg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_co-KYLpMEeeF_PzGoMjwJg" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_Fg40grpMEeeF_PzGoMjwJg" name="country" type="_eWtWALo1EeeF_PzGoMjwJg" association="_Fg3mYLpMEeeF_PzGoMjwJg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Fg8e4LpMEeeF_PzGoMjwJg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Fg-UELpMEeeF_PzGoMjwJg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

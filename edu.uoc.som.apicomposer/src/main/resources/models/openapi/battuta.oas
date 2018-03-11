@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ASCII"?>
+<openAPI.core:Root
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:openAPI.core="http://example.com/openAPI/core">
+  <api swagger="2.0"
+      host="battuta.medunes.net"
+      basePath="/api"
+      definitions="//@schemas.0 //@schemas.1 //@schemas.2">
+    <externalDocs
+        url="https://battuta.medunes.net/"/>
+    <info title="Battuta!"
+        description="A location API provider, by medunes"
+        version="0.0.1">
+      <contact
+          email="battuta@medunes.net"/>
+    </info>
+    <schemes>https</schemes>
+    <schemes>http</schemes>
+    <paths pattern="/country/all">
+      <get parameters="//@paramters.11"
+          summary="List all countries"
+          description="Lists all countries of the world"
+          responses="//@responses.0">
+        <produces>application/json</produces>
+      </get>
+    </paths>
+    <paths pattern="/country/code/{code}">
+      <get parameters="//@paramters.0"
+          summary="Country by code"
+          description="Returns a single JSON object containing the name and the code of the country requested by its alpha-2 country"
+          responses="//@responses.1">
+        <produces>application/json</produces>
+      </get>
+    </paths>
+    <paths pattern="/country/search">
+      <get parameters="//@paramters.1 //@paramters.2 //@paramters.3"
+          summary="Country by name, region or city"
+          description="Lists all countries which names, regions and cities contain hints(parts of text) given in the request URL"
+          responses="//@responses.2">
+        <produces>application/json</produces>
+      </get>
+    </paths>
+    <paths pattern="/region/{code}/all">
+      <get parameters="//@paramters.4 //@paramters.11"
+          summary="List all regions"
+          description="Lists all regions of a single country given its alpha-2 code"
+          responses="//@responses.3">
+        <produces>application/json</produces>
+      </get>
+    </paths>
+    <paths pattern="/region/{code}/search">
+      <get parameters="//@paramters.5 //@paramters.6 //@paramters.7"
+          summary="Region by name or city"
+          description="Lists all regions which names and cities contain hints(parts of text) given in the request URL"
+          responses="//@responses.4">
+        <produces>application/json</produces>
+      </get>
+    </paths>
+    <paths pattern="/city/{code}/search">
+      <get parameters="//@paramters.8 //@paramters.9 //@paramters.10"
+          summary="City by name or region"
+          description="Lists all cities which names and regions contain hints(parts of text) given in the request URL"
+          responses="//@responses.5">
+        <produces>application/json</produces>
+      </get>
+    </paths>
+    <securityDefinitions
+        type="apiKey"
+        name="key"
+        location="query"
+        globalName="api_key"/>
+  </api>
+  <paramters
+      type="string"
+      name="code"
+      location="path"
+      required="true"/>
+  <paramters
+      type="string"
+      description="text which should figure in the name of the searched country"
+      name="country"
+      location="query"/>
+  <paramters
+      type="string"
+      description="text which should figure in the name of any region belonging to the searched country"
+      name=" region"
+      location="query"/>
+  <paramters
+      type="string"
+      description="text which should figure in the name of any city belonging to the searched country"
+      name="city"
+      location="query"/>
+  <paramters
+      type="string"
+      name="code"
+      location="path"
+      required="true"/>
+  <paramters
+      type="string"
+      name="code"
+      location="path"
+      required="true"/>
+  <paramters
+      type="string"
+      name="region"
+      location="query"/>
+  <paramters
+      type="string"
+      name="city"
+      location="query"/>
+  <paramters
+      type="string"
+      name="code"
+      location="path"
+      required="true"/>
+  <paramters
+      type="string"
+      name="region"
+      location="query"/>
+  <paramters
+      type="string"
+      name="city"
+      location="query"/>
+  <paramters
+      type="string"
+      name="key"
+      location="query"/>
+  <schemas type="object"
+      name="Country"
+      properties="//@schemas.3 //@schemas.4"
+      declaringContext="//@api"/>
+  <schemas type="object"
+      name="Region"
+      properties="//@schemas.5 //@schemas.6"
+      declaringContext="//@api"/>
+  <schemas type="object"
+      name="City"
+      properties="//@schemas.7 //@schemas.8 //@schemas.9 //@schemas.10 //@schemas.11"
+      declaringContext="//@api"/>
+  <schemas type="string"
+      description="The full name of the country (ex: Tunisia, Japan, Germany)"
+      name="name"
+      declaringContext="//@schemas.0"/>
+  <schemas type="string"
+      description="The ISO 3166-1 alpha-2 standard country code (ex:TN/US/JP/DE)"
+      name="code"
+      declaringContext="//@schemas.0"/>
+  <schemas type="string"
+      description="The full name of the region (ex: Sousse, California,Tokyo,Berlin)"
+      name="region"
+      declaringContext="//@schemas.1"/>
+  <schemas type="string"
+      description="The ISO 3166-1 alpha-2 standard country code (ex:TN/US/JP/DE)"
+      name="country"
+      declaringContext="//@schemas.1"/>
+  <schemas type="string"
+      name="city"
+      declaringContext="//@schemas.2"/>
+  <schemas type="string"
+      name="region"
+      declaringContext="//@schemas.2"/>
+  <schemas type="string"
+      name="country"
+      declaringContext="//@schemas.2"/>
+  <schemas type="number"
+      name="lattitude"
+      declaringContext="//@schemas.2"/>
+  <schemas type="number"
+      name="langiture"
+      declaringContext="//@schemas.2"/>
+  <schemas type="array"
+      items="//@schemas.0"/>
+  <schemas type="array"
+      items="//@schemas.0"/>
+  <schemas type="array"
+      items="//@schemas.0"/>
+  <schemas type="array"
+      items="//@schemas.1"/>
+  <schemas type="array"
+      items="//@schemas.1"/>
+  <schemas type="array"
+      items="//@schemas.2"/>
+  <responses
+      schema="//@schemas.12"
+      description="successful operation"
+      code="200"/>
+  <responses
+      schema="//@schemas.13"
+      description="successful operation"
+      code="200"/>
+  <responses
+      schema="//@schemas.14"
+      description="successful operation"
+      code="200"/>
+  <responses
+      schema="//@schemas.15"
+      description="successful operation"
+      code="200"/>
+  <responses
+      schema="//@schemas.16"
+      description="successful operation"
+      code="200"/>
+  <responses
+      schema="//@schemas.17"
+      description="successful operation"
+      code="200"/>
+</openAPI.core:Root>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ASCII"?>
+<openAPI.core:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:openAPI.core="http://example.com/openAPI/core">
+  <api swagger="2.0" host="restcountries.eu" basePath="/rest/v2" definitions="//@schemas.0 //@schemas.1 //@schemas.2 //@schemas.3 //@schemas.4">
+    <externalDocs url="https://restcountries.eu"/>
+    <info title="REST Countries" description="Get information about countries via a RESTful API" version="2.0.5">
+      <license name="Mozilla Public License MPL 2.0" url="https://www.mozilla.org/en-US/MPL/2.0/"/>
+    </info>
+    <schemes>https</schemes>
+    <schemes>http</schemes>
+    <produces>application/json</produces>
+    <paths pattern="/all">
+      <get summary="Returns all countries." responses="//@responses.0"/>
+    </paths>
+    <paths pattern="/name/{name}">
+      <get parameters="//@paramters.0 //@paramters.1" summary="Search by country name. It can be the native name or partial name" responses="//@responses.1"/>
+    </paths>
+    <paths pattern="/alpha/{code}">
+      <get parameters="//@paramters.2 //@paramters.3" summary="Search by ISO 3166-1 2-letter or 3-letter country code" responses="//@responses.2"/>
+    </paths>
+    <paths pattern="/currency/{currency}">
+      <get parameters="//@paramters.4" summary="Search by ISO 4217 currency code" responses="//@responses.3"/>
+    </paths>
+    <paths pattern="/lang/{et}">
+      <get parameters="//@paramters.5" summary="Search by ISO 639-1 language code" responses="//@responses.4"/>
+    </paths>
+    <paths pattern="/capital/{capital}">
+      <get parameters="//@paramters.6" summary="Search by capital city." responses="//@responses.5"/>
+    </paths>
+    <paths pattern="/callingcode/{callingcode}">
+      <get parameters="//@paramters.7" summary="Search by calling code" responses="//@responses.6"/>
+    </paths>
+    <paths pattern="/region/{region}">
+      <get parameters="//@paramters.8" summary="Search by region: Africa, America\, Asia, Europe, Oceania" responses="//@responses.7"/>
+    </paths>
+    <paths pattern="/regionalbloc/{regionalbloc}">
+      <get parameters="//@paramters.9" responses="//@responses.8"/>
+    </paths>
+  </api>
+  <paramters type="string" name="name" location="path" required="true"/>
+  <paramters type="boolean" name="fullText" location="query"/>
+  <paramters type="string" name="code" location="path" required="true"/>
+  <paramters type="string" name="codes" location="query"/>
+  <paramters type="string" name="currency" location="path" required="true"/>
+  <paramters type="string" name="et" location="path" required="true"/>
+  <paramters type="string" name="capital" location="path" required="true"/>
+  <paramters type="integer" name="callingcode" location="path" required="true"/>
+  <paramters type="string" name="region" location="path" required="true"/>
+  <paramters type="string" name="regionalbloc" location="path" required="true"/>
+  <schemas type="object" name="Country" properties="//@schemas.5 //@schemas.6 //@schemas.8 //@schemas.9 //@schemas.10 //@schemas.12 //@schemas.13 //@schemas.15 //@schemas.16 //@schemas.17 //@schemas.18 //@schemas.20 //@schemas.21 //@schemas.22 //@schemas.23 //@schemas.25 //@schemas.27 //@schemas.28 //@schemas.29 //@schemas.30 //@schemas.31 //@schemas.32 //@schemas.33 //@schemas.34" declaringContext="//@api"/>
+  <schemas type="object" name="Currency" properties="//@schemas.35 //@schemas.36 //@schemas.37" declaringContext="//@api"/>
+  <schemas type="object" name="Translation" properties="//@schemas.38 //@schemas.39 //@schemas.40 //@schemas.41 //@schemas.42 //@schemas.43 //@schemas.44 //@schemas.45 //@schemas.46 //@schemas.47" declaringContext="//@api"/>
+  <schemas type="object" name="Language" properties="//@schemas.48 //@schemas.49 //@schemas.50 //@schemas.51" declaringContext="//@api"/>
+  <schemas type="object" name="RegionalBloc" properties="//@schemas.52 //@schemas.53 //@schemas.54 //@schemas.56" declaringContext="//@api"/>
+  <schemas type="string" name="name" declaringContext="//@schemas.0"/>
+  <schemas type="array" name="topLevelDomain" items="//@schemas.7" declaringContext="//@schemas.0"/>
+  <schemas type="string"/>
+  <schemas type="string" name="alpha2Code" declaringContext="//@schemas.0"/>
+  <schemas type="string" name="alpha3Code" declaringContext="//@schemas.0"/>
+  <schemas type="array" name="callingCodes" items="//@schemas.11" declaringContext="//@schemas.0"/>
+  <schemas type="string"/>
+  <schemas type="string" name="capital" declaringContext="//@schemas.0"/>
+  <schemas type="array" name="altSpellings" items="//@schemas.14" declaringContext="//@schemas.0"/>
+  <schemas type="string"/>
+  <schemas type="string" name="region" declaringContext="//@schemas.0"/>
+  <schemas type="string" name="subregion" declaringContext="//@schemas.0"/>
+  <schemas type="integer" name="population" declaringContext="//@schemas.0"/>
+  <schemas type="array" name="latlng" items="//@schemas.19" declaringContext="//@schemas.0"/>
+  <schemas type="integer"/>
+  <schemas type="string" name="demonym" declaringContext="//@schemas.0"/>
+  <schemas type="number" name="area" declaringContext="//@schemas.0"/>
+  <schemas type="number" name="gini" declaringContext="//@schemas.0"/>
+  <schemas type="array" name="timezones" items="//@schemas.24" declaringContext="//@schemas.0"/>
+  <schemas type="string"/>
+  <schemas type="array" name="borders" items="//@schemas.26" declaringContext="//@schemas.0"/>
+  <schemas type="string"/>
+  <schemas type="string" name="nativeName" declaringContext="//@schemas.0"/>
+  <schemas type="string" name="numericCode" declaringContext="//@schemas.0"/>
+  <schemas type="string" name="flag" declaringContext="//@schemas.0"/>
+  <schemas type="string" name="cioc" declaringContext="//@schemas.0"/>
+  <schemas type="array" name="currencies" items="//@schemas.1" declaringContext="//@schemas.0"/>
+  <schemas type="array" name="languages" items="//@schemas.3" declaringContext="//@schemas.0"/>
+  <schemas name="Translation" declaringContext="//@schemas.0" value="//@schemas.2"/>
+  <schemas type="array" name="regionalBlocs" items="//@schemas.4" declaringContext="//@schemas.0"/>
+  <schemas type="string" name="code" declaringContext="//@schemas.1"/>
+  <schemas type="string" name="name" declaringContext="//@schemas.1"/>
+  <schemas type="string" name="symbol" declaringContext="//@schemas.1"/>
+  <schemas type="string" name="de" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="es" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="fr" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="ja" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="it" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="br" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="pt" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="nl" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="hr" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="fa" declaringContext="//@schemas.2"/>
+  <schemas type="string" name="iso639_1" declaringContext="//@schemas.3"/>
+  <schemas type="string" name="iso639_2" declaringContext="//@schemas.3"/>
+  <schemas type="string" name="name" declaringContext="//@schemas.3"/>
+  <schemas type="string" name="nativeName" declaringContext="//@schemas.3"/>
+  <schemas type="string" name="acronym" declaringContext="//@schemas.4"/>
+  <schemas type="string" name="name" declaringContext="//@schemas.4"/>
+  <schemas type="array" name="otherAcronyms" items="//@schemas.55" declaringContext="//@schemas.4"/>
+  <schemas type="string"/>
+  <schemas type="array" name="otherNames" items="//@schemas.57" declaringContext="//@schemas.4"/>
+  <schemas type="string"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <schemas type="array" items="//@schemas.0"/>
+  <responses schema="//@schemas.58" description="successful operation" code="200"/>
+  <responses schema="//@schemas.59" description="successful operation" code="200"/>
+  <responses schema="//@schemas.60" description="successful operation" code="200"/>
+  <responses schema="//@schemas.61" description="successful operation" code="200"/>
+  <responses schema="//@schemas.62" description="successful operation" code="200"/>
+  <responses schema="//@schemas.63" description="successful operation" code="200"/>
+  <responses schema="//@schemas.64" description="successful operation" code="200"/>
+  <responses schema="//@schemas.65" description="successful operation" code="200"/>
+  <responses schema="//@schemas.66" description="successful operation" code="200"/>
+</openAPI.core:Root>

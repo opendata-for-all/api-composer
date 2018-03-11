@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<f:view contentType="text/html">
+
+	<h:head>
+		<h:outputStylesheet library="css" name="default.css" />
+
+		<style type="text/css">
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+body {
+	background-color: #FFFFFF;
+}
+</style>
+	</h:head>
+
+	<h:body>
+		<script type="text/javascript">
+			function handleAddAPI(xhr, status, args) {
+				if (args.validationFailed) {
+					PF('addAPIDialog').jq.effect("shake", {
+						times : 5
+					}, 100);
+				} else {
+					PF('addAPIDialog').hide();
+				}
+			};
+		</script>
+		<p:layout fullPage="true">
+
+			<p:layoutUnit id="top" position="north" size="70">
+				<h:graphicImage library="images" name="icon-small.png"
+					styleClass="logo" alt="ODA" />
+				<h:form id="headerForm" style="float:right;">
+					<p:growl id="growl" showDetail="true" sticky="true" />
+					<p:ajaxExceptionHandler type="java.lang.Exception"
+						update="exceptionDialog"
+						onexception="PF('exceptionDialog').show();" />
+
+					<p:commandLink id="addAPI" title="Add API"
+						oncomplete="PF('addAPIDialog').show()" >
+						<h:graphicImage library="images" name="plus.png"
+							alt="Add" />
+					</p:commandLink>
+				</h:form>
+			</p:layoutUnit>
+
+
+
+			<p:layoutUnit position="east" size="200" header="Composed APIs"
+				resizable="true" closable="false" collapsible="true">
+				<h:form id="composedAPIsViewForm">
+					<p:panelMenu model="#{composedAPIsView.model}">
+					</p:panelMenu>
+				</h:form>
+			</p:layoutUnit>
+
+			<p:layoutUnit id="left" position="west" size="250"
+				header="Global API" resizable="true" closable="false"
+				collapsible="true" style="text-align:center">
+<p:outputPanel id="globlAPI">
+				<p:treeTable id="modelTree" value="#{globalAPIView.umlTree}"
+					var="node" emptyMessage="Nothing to show yet.">
+					<p:column>
+						<h:outputText value="#{node.value}" />
+					</p:column>
+
+
+				</p:treeTable>
+				</p:outputPanel>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center" header="Details">
+
+				<p:outputPanel id="details">
+					<p:tabView>
+						<p:tab title="Open API">
+							<redoc spec-url="#{composedAPIsView.doc}"></redoc>
+						</p:tab>
+						<p:tab title="UML">
+							<p:treeTable value="#{composedAPIsView.umlTree}" var="node"
+								style="width: inherit" emptyMessage="Click on the 'show' button of the API you want to show">
+								<p:column>
+									<h:outputText value="#{node.value}" />
+								</p:column>
+							</p:treeTable>
+						</p:tab>
+					</p:tabView>
+
+				</p:outputPanel>
+
+
+				<script
+					src="https://rebilly.github.io/ReDoc/releases/latest/redoc.min.js">
+					
+				</script>
+
+
+
+
+			</p:layoutUnit>
+
+		</p:layout>
+		<p:layoutUnit id="bottom" position="south" size="40">
+			<p:link href="http://som-research.uoc.edu/" target="_BLANK">
+				<h:graphicImage library="images" name="SOMlogo-boxed-512px.png"
+					styleClass="team-logo" alt="SOM Research Lab" />
+			</p:link>
+		</p:layoutUnit>
+
+
+
+		<p:dialog id="addAPIDialog" header="Add a new API"
+			widgetVar="addAPIDialog" closable="false" modal="true" width="800"
+			height="400">
+			<h:form id="wizardForm">
+				<p:wizard flowListener="#{addAPIDialog.onFlowProcess}"
+					showNavBar="false" widgetVar="addAPIWizard">
+					<p:tab id="fileUploadTab" title="Open API spec">
+						<p:fileUpload
+							fileUploadListener="#{addAPIDialog.handleFileUpload}"
+							process="@this" mode="advanced" dragDropSupport="false"
+							sizeLimit="100000" fileLimit="1" allowTypes="/(\.|\/)(json)$/"
+							update="wizardForm:apiName" />
+						<h:outputText id="apiName" value="#{addAPIDialog.openAPIFileName}"></h:outputText>
+					</p:tab>
+
+					<p:tab id="dataModelTab" title="Data model">
+
+						<p:commandButton id="refineMenu" value="Refine model"
+							type="button" icon="ui-icon-extlink" />
+						<p:menu overlay="true" trigger="refineMenu" my="left top"
+							at="left bottom">
+
+							<p:menuitem value="Modify a Type"
+								onclick="PF('modifyTypeDialog').show();" icon="ui-icon-disk" />
+							<p:menuitem value="Modify a class name"
+								onclick="PF('modifyTypeNameDialog').show();" icon="ui-icon-disk" />
+
+
+						</p:menu>
+						<p:treeTable value="#{addAPIDialog.umlTree}" var="node"
+							style="width: inherit"
+							rowStyleClass="#{node.newElement ? 'highlight':null}">
+							<p:column>
+								<h:outputText value="#{node.value}" />
+							</p:column>
+						</p:treeTable>
+
+					</p:tab>
+					<p:tab id="globalAPITab" title="Global API">
+						<p:commandButton id="mergeMenu" value="Merge" type="button"
+							icon="ui-icon-extlink" />
+						<p:menu overlay="true" trigger="mergeMenu" my="left top"
+							at="left bottom">
+
+							<p:menuitem value="Merge classes"
+								onclick="PF('mergeClassesDialog').show();" icon="ui-icon-disk" />
+							<p:menuitem value="Merge attributes"
+								onclick="PF('mergeAttributesDialog').show();"
+								icon="ui-icon-disk" />
+
+
+						</p:menu>
+						<p:treeTable value="#{addAPIDialog.globalModelTree}" var="node"
+							rowStyleClass="#{node.newElement ? 'highlight':null}">
+							<p:column>
+								<h:outputText value="#{node.value}" />
+							</p:column>
+						</p:treeTable>
+					</p:tab>
+
+				</p:wizard>
+
+			</h:form>
+
+
+
+
+			<f:facet name="footer">
+				<h:form id="wizardFoaterForm">
+					<p:outputPanel id="addAPIFooterPanel" style="float:right">
+
+						<p:commandButton value="Cancel"
+							actionListener="#{addAPIDialog.cancel}"
+							update="wizardForm wizardFoaterForm"
+							oncomplete="PF('addAPIDialog').hide(); PF('addAPIWizard').loadStep(PF('addAPIWizard').cfg.steps[0], false);" />
+						<p:commandButton value="Back" onclick="PF('addAPIWizard').back();"
+							update="wizardForm wizardFoaterForm"
+							disabled="#{addAPIDialog.backDisabled}"></p:commandButton>
+						<p:commandButton value="Next" onclick="PF('addAPIWizard').next();"
+							update="wizardForm wizardFoaterForm modifyTypeForm modifyTypeNameForm mergeClassesForm mergeAttributesForm apikey"
+							disabled="#{addAPIDialog.nextDisabled}"></p:commandButton>
+
+						<p:commandButton value="Finish"
+							actionListener="#{addAPIDialog.save}"
+							oncomplete="PF('addAPIDialog').hide(); PF('addAPIWizard').loadStep(PF('addAPIWizard').cfg.steps[0], false);"
+							update="wizardForm headerForm:growl composedAPIsViewForm wizardFoaterForm globlAPI"
+							disabled="#{addAPIDialog.finishDisabled}" />
+					</p:outputPanel>
+				</h:form>
+			</f:facet>
+		</p:dialog>
+		<p:dialog id="exceptionDialog" header="Oups"
+			widgetVar="exceptionDialog">
+   There was a problem with your request :( <br />
+			<br />
+
+			<p:button onclick="PF('exceptionDialog').hide()" value="Close" />
+			<p:growl id="growl" showDetail="false" sticky="true" />
+		</p:dialog>
+		<p:dialog id="modifyType" header="Modify a model element"
+			widgetVar="modifyTypeDialog">
+			<h:form id="modifyTypeForm">
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<p:outputLabel for="element" value="Element:" />
+					<p:selectOneMenu id="element"
+						value="#{addAPIDialog.selectedElement}" style="width: 125px">
+						<f:selectItems value="#{addAPIDialog.types}" />
+					</p:selectOneMenu>
+					<p:outputLabel for="newType" value="New type" />
+					<p:selectOneMenu id="newType" value="#{addAPIDialog.newType}"
+						style="width: 125px">
+						<f:selectItem itemLabel="DataType" itemValue="DataType" />
+						<f:selectItem itemLabel="Class" itemValue="Class" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+
+				<p:outputPanel style="float:right">
+
+					<p:commandButton value="Cancel"
+						oncomplete="PF('modifyTypeDialog').hide();" />
+
+					<p:commandButton value="Save" process="modifyTypeForm"
+						actionListener="#{addAPIDialog.saveNewType}"
+						oncomplete="PF('modifyTypeDialog').hide();" update="wizardForm" />
+
+
+				</p:outputPanel>
+			</h:form>
+		</p:dialog>
+		<p:dialog id="modifyTypeName" header="Edit name"
+			widgetVar="modifyTypeNameDialog">
+			<h:form id="modifyTypeNameForm">
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<p:outputLabel for="Type" value="Element:" />
+					<p:selectOneMenu id="Type" value="#{addAPIDialog.selectedElement}"
+						style="width: 125px">
+						<f:selectItems value="#{addAPIDialog.types}" />
+					</p:selectOneMenu>
+					<p:outputLabel for="newTypeName" value="New name" />
+					<p:inputText id="newTypeName" value="#{addAPIDialog.newTypeName}" />
+
+				</h:panelGrid>
+
+				<p:outputPanel style="float:right">
+
+					<p:commandButton value="Cancel"
+						oncomplete="PF('modifyTypeNameDialog').hide();" />
+
+					<p:commandButton value="Save" process="modifyTypeNameForm"
+						actionListener="#{addAPIDialog.saveNewTypeName}"
+						oncomplete="PF('modifyTypeNameDialog').hide();"
+						update="wizardForm" />
+
+
+				</p:outputPanel>
+			</h:form>
+		</p:dialog>
+		<p:dialog id="apikey" header="API KEY"
+			widgetVar="apiKeyDialog" visible="#{addAPIDialog.apiKey}">
+			<h:form id="apiKeyForm">
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					
+					<p:outputLabel value="key" />
+					<p:inputText   />
+
+				</h:panelGrid>
+
+				<p:outputPanel style="float:right">
+
+					<p:commandButton value="Cancel"
+						oncomplete="PF('apiKeyDialog').hide();" />
+
+					<p:commandButton value="Save" process="apiKeyForm"
+	actionListener="#{addAPIDialog.addAPIKey}"
+						oncomplete="PF('apiKeyDialog').hide();"
+						update="wizardForm headerForm:growl" />
+
+
+				</p:outputPanel>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog id="mergeClasses" header="Merge classes"
+			widgetVar="mergeClassesDialog">
+			<h:form id="mergeClassesForm">
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<p:outputLabel for="class1" value="First class" />
+					<p:selectOneMenu id="class1"
+						value="#{addAPIDialog.selectedFirstClass}" style="width: 125px">
+						<f:selectItems value="#{addAPIDialog.globalClasses}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="class2" value="Second class" />
+					<p:selectOneMenu id="class2"
+						value="#{addAPIDialog.selectedSecondClass}" style="width: 125px">
+						<f:selectItems value="#{addAPIDialog.globalClasses}" />
+					</p:selectOneMenu>
+
+				</h:panelGrid>
+
+				<p:outputPanel style="float:right">
+
+					<p:commandButton value="Cancel"
+						oncomplete="PF('mergeClassesDialog').hide();" />
+
+					<p:commandButton value="Save" process="mergeClassesForm"
+						actionListener="#{addAPIDialog.mergeClasses}"
+						oncomplete="PF('mergeClassesDialog').hide();"
+						update="wizardForm mergeClassesForm" />
+
+
+				</p:outputPanel>
+			</h:form>
+		</p:dialog>
+		<p:dialog id="mergeAttributes" header="Merge attributes"
+			widgetVar="mergeAttributesDialog">
+			<h:form id="mergeAttributesForm">
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<p:outputLabel for="class" value="Class" />
+					<p:selectOneMenu id="class" value="#{addAPIDialog.selectedClass}"
+						style="width: 125px">
+						<f:selectItem itemLabel="Select" itemValue="" />
+						<f:selectItems value="#{addAPIDialog.globalClasses}" />
+						<p:ajax event="change" update="mergeAttributesForm"
+							process="@this" listener="#{addAPIDialog.classSelectionChanged}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="attribute1" value="First attribute" />
+					<p:selectOneMenu id="attribute1"
+						value="#{addAPIDialog.selectedFirstProperty}" style="width: 125px">
+						<f:selectItems value="#{addAPIDialog.attributes}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="attribute2" value="second attribute" />
+					<p:selectOneMenu id="attribute2"
+						value="#{addAPIDialog.selectedSecondProperty}"
+						style="width: 125px">
+						<f:selectItems value="#{addAPIDialog.attributes}" />
+					</p:selectOneMenu>
+
+				</h:panelGrid>
+
+				<p:outputPanel style="float:right">
+
+					<p:commandButton value="Cancel"
+						oncomplete="PF('mergeAttributesDialog').hide();" />
+
+					<p:commandButton value="Save" process="mergeAttributesForm"
+						actionListener="#{addAPIDialog.mergeAttributes}"
+						oncomplete="PF('mergeAttributesDialog').hide();"
+						update="wizardForm mergeAttributesForm" />
+
+
+				</p:outputPanel>
+			</h:form>
+		</p:dialog>
+	</h:body>
+
+</f:view>
+
+
+</html>

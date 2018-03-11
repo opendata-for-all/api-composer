@@ -1,0 +1,59 @@
+@CHARSET "ISO-8859-1";
+.ui-widget, .ui-widget .ui-widget {
+     font-size: 93% !important;
+}
+.logo {
+	position: absolute;
+	top: 5px;
+	left: 15px;
+	height: 60px;
+}
+.highlight {
+	color : green !important;
+	font-weight: bold !important;
+}
+.ui-tabs .ui-tabs-panel{
+	padding: 0 0 !important;
+}
+.menu-content{
+position: fixed; 
+top: 110px !important; 
+bottom: 0px; 
+max-height: 100%;
+}
+.team-logo {
+	float:right;
+	height: 25px;
+	margin-right: 10px;
+}
+#top.ui-widget-content{
+	border: 0px; !important;
+}
+#center-north.ui-widget-content{
+	border: 0px; !important;
+}
+
+/* #center.ui-widget-content{ */
+/* 	border: 0px; !important; */
+/* } */
+#bottom {
+	background-color: #f5f5f5 !important;
+	border: 0px; !important;
+	
+}
+#bottom .ui-widget-content{
+	background-color: #f5f5f5 !important;
+	border: 0px; !important;
+	padding-left: 10px !important;
+}
+#bottom a {
+	 text-decoration: none;
+}
+.ui-slidemenu-wrapper{
+	height: 80px !important;
+}
+.ui-treetable td {
+    text-align: left !important;
+
+  
+}

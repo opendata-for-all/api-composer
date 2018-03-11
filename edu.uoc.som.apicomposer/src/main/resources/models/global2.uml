@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ODataProfile="http:///schemas/ODataProfile/_VJO7IAtwEeeOHoEmuIcGDg/0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/ODataProfile/_VJO7IAtwEeeOHoEmuIcGDg/0 pathmap://ODA_PROFILES/odata.profile.uml">
+  <uml:Model xmi:id="_CW9zILjAEeeF_PzGoMjwJg" name="model" visibility="public">
+    <packageImport xmi:id="_CjsnkLjAEeeF_PzGoMjwJg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+  </uml:Model>
+  <ODataProfile:ODService xmi:id="_b-zAML1mEeegB4v5nNoZ4w" version="0.0.1" base_Model="_CW9zILjAEeeF_PzGoMjwJg" entityContainerName="ODAService" schemaNamespace="com.opendataforall" schemaAlias="oda"/>
+  
+</xmi:XMI>

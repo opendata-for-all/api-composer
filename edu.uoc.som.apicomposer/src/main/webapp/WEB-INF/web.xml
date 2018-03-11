@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <servlet>
+      <servlet-name>FacesServlet</servlet-name>
+      <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+    </servlet>
+    <welcome-file-list>
+    <welcome-file>config/configuration.xhtml</welcome-file></welcome-file-list>
+    <context-param>  
+    <param-name>primefaces.THEME</param-name>  
+    <param-value>flick</param-value>  
+	</context-param>
+	<context-param>
+	<param-name>upload.location</param-name>
+	<param-value>C:\oda\models</param-value>
+	</context-param>  
+    <servlet-mapping>
+      <servlet-name>FacesServlet</servlet-name>
+      <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+  <servlet>
+    <servlet-name>ODataServlet</servlet-name>
+    <servlet-class>com.opendataforall.rest.web.OpenDataForAllServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ODataServlet</servlet-name>
+    <url-pattern>/ODataService.svc/*</url-pattern>
+  </servlet-mapping>
+</web-app>
