@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.uoc.som.openapi.extended/src" modelPluginID="edu.uoc.som.openapi.extended"
+    modelName="Xopenapi" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>xopenapi.ecore</foreignModel>
+  <genPackages prefix="XOpenAPI" basePackage="edu.uoc.som" disposableProviderFactory="true"
+      ecorePackage="xopenapi.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xopenapi.ecore#//SchemeType">
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//SchemeType/http"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//SchemeType/https"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//SchemeType/ws"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//SchemeType/wss"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xopenapi.ecore#//ParameterLocation">
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//ParameterLocation/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//ParameterLocation/query"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//ParameterLocation/header"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//ParameterLocation/path"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//ParameterLocation/formData"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//ParameterLocation/body"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xopenapi.ecore#//CollectionFormat">
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//CollectionFormat/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//CollectionFormat/csv"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//CollectionFormat/ssv"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//CollectionFormat/tsv"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//CollectionFormat/pipes"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//CollectionFormat/multi"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xopenapi.ecore#//OAuth2FlowType">
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//OAuth2FlowType/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//OAuth2FlowType/implicit"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//OAuth2FlowType/password"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//OAuth2FlowType/application"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//OAuth2FlowType/accessCode"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xopenapi.ecore#//APIKeyLocation">
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//APIKeyLocation/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//APIKeyLocation/query"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//APIKeyLocation/header"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xopenapi.ecore#//SecuritySchemeType">
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//SecuritySchemeType/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//SecuritySchemeType/basic"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//SecuritySchemeType/apiKey"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//SecuritySchemeType/oauth2"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="xopenapi.ecore#//JSONDataType">
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/number"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/object"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/array"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/file"/>
+      <genEnumLiterals ecoreEnumLiteral="xopenapi.ecore#//JSONDataType/null"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//JSONSchemaSubset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/exclusiveMaximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/exclusiveMinimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/maxLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/minLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/maxItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/minItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/uniqueItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/enum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONSchemaSubset/multipleOf"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Root">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Root/api"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Root/paramters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Root/schemas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Root/responses"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//API">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//API/swagger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//API/info"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//API/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//API/basePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//API/schemes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//API/consumes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//API/produces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//API/paths"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//API/definitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//API/responses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//API/securityDefinitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//API/tags"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//API/extensions"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/getRef"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/pathsIsSet"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/getAllOperations"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/getSchemaByReference">
+        <genParameters ecoreParameter="xopenapi.ecore#//API/getSchemaByReference/ref"/>
+      </genOperations>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/getOperationById">
+        <genParameters ecoreParameter="xopenapi.ecore#//API/getOperationById/operationId"/>
+      </genOperations>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/getPathByRelativePath">
+        <genParameters ecoreParameter="xopenapi.ecore#//API/getPathByRelativePath/relativePath"/>
+      </genOperations>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/getSchemaByName">
+        <genParameters ecoreParameter="xopenapi.ecore#//API/getSchemaByName/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/getParameterByRef">
+        <genParameters ecoreParameter="xopenapi.ecore#//API/getParameterByRef/ref"/>
+      </genOperations>
+      <genOperations ecoreOperation="xopenapi.ecore#//API/getSecuritySchemaByName">
+        <genParameters ecoreParameter="xopenapi.ecore#//API/getSecuritySchemaByName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Info">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Info/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Info/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Info/termsOfServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Info/contact"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Info/license"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Info/version"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Contact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Contact/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Contact/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Contact/email"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//License">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//License/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//License/url"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Path">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Path/relativePath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Path/get"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Path/put"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Path/post"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Path/delete"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Path/options"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Path/head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Path/patch"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference xopenapi.ecore#//Path/api"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//Path/getOperationByMethod">
+        <genParameters ecoreParameter="xopenapi.ecore#//Path/getOperationByMethod/method"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Operation/tagReferences"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Operation/summary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Operation/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Operation/operationId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Operation/consumes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Operation/produces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Operation/responses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Operation/schemes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Operation/deprecated"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//Operation/getFullPath"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//Operation/getConsumedSchema"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//Operation/getProducedSchema"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//Operation/IsProducingList"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//Operation/getMethod"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//ExternalDocs">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//ExternalDocs/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//ExternalDocs/url"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Parameter/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Parameter/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Parameter/allowEmplyValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Parameter/referenceName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Parameter/declaringContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Parameter/example"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//ItemsDefinition"/>
+    <genClasses ecoreClass="xopenapi.ecore#//Schema">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Schema/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Schema/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Schema/maxProperties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Schema/minProperties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Schema/example"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Schema/discriminator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Schema/readOnly"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Schema/properties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Schema/allOf"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Schema/items"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Schema/xml"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Schema/additonalProperties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Schema/declaringContext"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Schema/required"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Schema/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Schema/additonalPropertiesAllowed"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//Schema/getRef"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//Schema/getPropertyByName">
+        <genParameters ecoreParameter="xopenapi.ecore#//Schema/getPropertyByName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Response">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Response/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Response/headers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Response/examples"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Response/code"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Response/declaringContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Response/referenceName"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Header/name"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Tag/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Tag/description"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//SecuritySchema">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecuritySchema/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecuritySchema/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecuritySchema/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecuritySchema/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecuritySchema/flow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecuritySchema/authorizationUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecuritySchema/tokenUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecuritySchema/referenceName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//SecuritySchema/scopes"/>
+      <genOperations ecoreOperation="xopenapi.ecore#//SecuritySchema/getSecurityScopeByName">
+        <genParameters ecoreParameter="xopenapi.ecore#//SecuritySchema/getSecurityScopeByName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Example">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Example/mimeType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Example/value"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//XMLElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//XMLElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//XMLElement/namespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//XMLElement/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//XMLElement/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//XMLElement/wrapped"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//SecurityScope">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecurityScope/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//SecurityScope/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//ParamterDeclaringContext"/>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//SchemaDeclaringContext"/>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//ResponseDeclaringContext"/>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//JSONPointer">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//JSONPointer/ref"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//SecurityContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//SecurityContext/securityRequirements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//ParameterContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//ParameterContext/parameters"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//SchemaContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//SchemaContext/schema"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//ExternalDocsContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//ExternalDocsContext/externalDocs"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//ArrayContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//ArrayContext/collectionFormat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xopenapi.ecore#//ArrayContext/items"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//SecurityRequirement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//SecurityRequirement/securityScopes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//SecurityRequirement/securitySchema"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//SchemaExtension"/>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Entity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Entity/properties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//Entity/navigationProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//Property/multivalued"/>
+    </genClasses>
+    <genClasses ecoreClass="xopenapi.ecore#//NavigationProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//NavigationProperty/multivalued"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference xopenapi.ecore#//NavigationProperty/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="xopenapi.ecore#//TypedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xopenapi.ecore#//TypedElement/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
