@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bind" nsURI="http://som.uoc.edu/bind/2.0.0/" nsPrefix="bind">
+  <eClassifiers xsi:type="ecore:EClass" name="BindingModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingElements" eType="#//BindingElement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityBinding" eSuperTypes="#//BindingElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="binded" upperBound="-1"
+        eType="ecore:EClass ../../edu.uoc.som.openapi.extended/model/xopenapi.ecore#//Entity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyBinding" eSuperTypes="#//BindingElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="binded" upperBound="-1"
+        eType="ecore:EClass ../../edu.uoc.som.openapi.extended/model/xopenapi.ecore#//Property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavigationPropertyBinding" eSuperTypes="#//BindingElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="binded" upperBound="-1"
+        eType="ecore:EClass ../../edu.uoc.som.openapi.extended/model/xopenapi.ecore#//NavigationProperty"/>
+  </eClassifiers>
+</ecore:EPackage>
